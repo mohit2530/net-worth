@@ -1,0 +1,115 @@
+
+$backgroundColor : white;
+$primary-error-color : red;
+$primary-button-color: lightslategrey;
+$text-underline-primary-color : lightblue;
+
+/**
+  *  Global CSS Properties
+  *
+  **/
+
+  // sets the size of the form inner element
+@mixin loginComponentSize($width, $height) {
+  min-height : $height;
+  min-width : $width;
+}
+
+// center container takes the whole page and centers the text
+@mixin centerContainer($location, $width, $height, $backgroundColor) {
+  justify-content : $location;
+  align-items: center;
+  width: $width;
+  height: $height;
+  background-color: $backgroundColor;
+}
+// center login for forms
+@mixin centerLogin ($transition, $textLocation, $borderRadius) {
+  transition: $transition;
+  text-align: $textLocation;
+  border-radius: $borderRadius;
+}
+
+@mixin button ($backgroundColor, $border, $borderRadius, $color, $outline, $textDecor, $cursor) {
+  color: $color;
+  cursor: $cursor;
+  border: $border;
+  margin: 4px 2px;
+  outline: $outline;
+  padding: 16px 32px;
+  text-decoration: $textDecor;
+  border-radius: $borderRadius;
+  background-color: $backgroundColor;
+}
+
+.error {
+  color: $primary-error-color;
+}
+
+
+/**
+  *  Individual CSS Properties
+  *
+  **/
+
+  // used for log in page
+.center-container {
+  @include centerContainer(center, 10vh, 100vh, $backgroundColor);
+  & .center-div-login {
+    @include centerLogin (0.3s, center, 8px);
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    @include loginComponentSize(50vh, 50vh);
+    & .bottom-login-container {
+      display: flex;
+      margin-top: 6vh;
+      padding-bottom: 3vh;
+      align-items: flex-end;
+      justify-content: space-around;
+    }
+    & .padding-top {
+      padding-top: 3vh;
+    }
+  }
+}
+
+// used for registration page
+.center-container-lg {
+  @include centerContainer(center, 10vh , 100vh, $backgroundColor);
+  & .center-div-login {
+    @include centerLogin (0.3s, center, 8px);
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    @include loginComponentSize(60vh, 60vh);
+    & .bottom-login-container {
+      display: flex;
+      margin-top: 6vh;
+      padding-bottom: 3vh;
+      align-items: flex-end;
+      justify-content: space-around;
+    }
+    & .padding-top {
+      padding-top: 3vh;
+    }
+  }
+}
+
+
+// form properties
+
+.form-group {
+  justify-content: center;
+  align-items: center;
+  padding: 2vh;
+  & .form-field {
+    outline: none;
+    border: none;
+    width: 40vh;
+    padding: 12px 20px;
+    margin: 8px 0;
+    text-align: center;
+    box-sizing: content-box;
+    border-bottom: 1px solid $text-underline-primary-color;
+  }
+  & button {
+    @include button($primary-button-color, none , 8px , $backgroundColor , none , none , pointer)
+    }
+}
