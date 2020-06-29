@@ -29,11 +29,9 @@ const LogInForm = (props) => {
             }}
             validationSchema={validationSchema}
             onSubmit={fields => {
-                alert('Success ');
                 handleAuth();
-                console.log(fields);
             }}
-            render={({ errors, status, touched }) => (
+            render={({ errors, touched }) => (
                 <Form>
                     <div className="form-group">
                         <Field
