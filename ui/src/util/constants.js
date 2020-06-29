@@ -7,6 +7,9 @@ export const constants = {
     baseUrl: '/',
     homeUrl: '/home',
 
+    login : "Log In",
+    logout : "Log Off",
+
 
 
 
