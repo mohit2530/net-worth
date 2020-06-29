@@ -12,7 +12,7 @@ const Register = (props) => {
     return (
         <React.Fragment>
             <Grid container className = "center-container-lg">
-                <Grid Item>
+                <Grid item>
                     <div className = "center-div-login">
                         <Typography
                             variant="h4"
@@ -20,29 +20,28 @@ const Register = (props) => {
                             className = "padding-top"
                             >
                             {constants.registerHeading}
-                            </Typography>
-                            <RegisterForm/>
+                        </Typography>
+                        <RegisterForm/>
                             <Typography
-                                variant = "paragraph"
+                                variant = "body1"
                                 color = "primary"
                                 >
                                 {constants.LoginForRegister}
+                                <Link href = "#" onClick = {(event) => {props.onClick() }} >
+                                    {constants.login}
+                                </Link>
                             </Typography>
-                            <Link href = "#" onClick = {(event) => {props.onClick() }} >
-                                {constants.login}
-                            </Link>
                             <div className="bottom-login-container">
                             <Typography
-                                variant = ""
+                                variant = "body1"
                                 color = "primary"
                                 >
                                 <Link href = "#" onClick = {preventDefaultAction} >
                                     {constants.termsConditions}
                                 </Link>
                             </Typography>
-
                             <Typography
-                                variant = ""
+                                variant = "body1"
                                 color = "primary"
                                 >
                                 <Link href = "#" onClick = {preventDefaultAction} >
@@ -51,11 +50,9 @@ const Register = (props) => {
                             </Typography>
                         </div>
                     </div>
-
                 </Grid>
             </Grid>
         </React.Fragment>
-
     )
 }
 

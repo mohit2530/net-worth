@@ -1,13 +1,12 @@
 import React from 'react'
-import '../../../util/Landing.scss'
 import LogInForm from './LoginForm'
+import '../../../util/Landing.scss'
+import { Link } from '@material-ui/core'
 import Grid from '@material-ui/core/Grid'
 import {constants} from '../../../util/constants'
 import Typography from '@material-ui/core/Typography'
-import { Link} from '@material-ui/core'
 
 const Login = (props) => {
-
     const handleClick = (location) => {
         console.log("Should render " + location  + " documents");
     };
@@ -15,7 +14,7 @@ const Login = (props) => {
     return (
         <React.Fragment>
             <Grid container className = "center-container">
-                <Grid Item>
+                <Grid item>
                     <div className="center-div-login">
                         <Typography
                             variant="h4"
@@ -27,18 +26,18 @@ const Login = (props) => {
                         <LogInForm/>
                         <div>
                             <Typography
-                                variant = "paragraph"
+                                variant = "body1"
                                 color = "primary"
                                 >
                                 {constants.registerForLogin}
+                                <Link href = "#" onClick = {(event) => {props.onClick() }} >
+                                    {constants.registerHeading}
+                                </Link>
                             </Typography>
-                            <Link href = "#" onClick = {(event) => {props.onClick() }} >
-                                {constants.registerHeading}
-                            </Link>
                         </div>
                         <div className="bottom-login-container">
                             <Typography
-                                variant = ""
+                                variant = "body1"
                                 color = "primary"
                                 >
                                 <Link href = "#" onClick = {handleClick("termsConditions")} >
@@ -47,7 +46,7 @@ const Login = (props) => {
                             </Typography>
 
                             <Typography
-                                variant = ""
+                                variant = "body1"
                                 color = "primary"
                                 >
                                 <Link href = "#" onClick = {handleClick("privacyPolicy")} >

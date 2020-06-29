@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import * as yup from 'yup'
+import auth from '../../../auth/auth'
+import {useHistory} from 'react-router-dom'
 import { constants } from '../../../util/constants'
 import PasswordHelper from '../../../util/PasswordHelper'
 import { Formik, Field, Form, ErrorMessage } from 'formik'
@@ -11,15 +13,20 @@ const validationSchema = yup.object().shape({
     password        : yup.string().matches(
         /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
         "Please upgrade to strong password").required('Please enter your password'),
-    confirmPassword : yup.string().required('Please confirm your password').test('passwords-match', 'Password must match', function(value) { return this.parent.password === value; }),
-    agreeToTerms: yup.boolean().label('Terms').test('is-true','Must agree to terms to continue',value => value === true)
+    confirmPassword : yup.string().required('Please confirm your password').test('passwords-match', 'Password must match', function(value) { return this.parent.password === value; })
 })
 
 const Register = () => {
     const [count, setCount] = useState(0),
         countAndUpdatePopper = () => {
         setCount(count + 1);
-    };
+        },
+        routePath = constants.homeUrl,
+        history = useHistory(),
+        handleAuth = () => {
+            auth.login( () => {history.push(routePath)})
+        };
+
     return (
         <React.Fragment>
             <Formik
@@ -28,14 +35,13 @@ const Register = () => {
                     lastName : '',
                     emailAddress : '',
                     password : '',
-                    confirmPassword : '',
-                    agreeToTerms : ''
+                    confirmPassword : ''
                 }}
                 validationSchema = {validationSchema}
                 onSubmit = { fields => {
-                    alert('Register Successful')
-                }}
-                render = { ({ errors, status, touched }) => (
+                    handleAuth()
+                }} 
+                render = { ({ errors, touched }) => (
                     <Form>
                         <div class="form-group">
                             <Field
@@ -109,7 +115,7 @@ const Register = () => {
                             />
                         </div>
                         {
-                        (count >= 1) && <PasswordHelper count = {count}/>
+                            (count >= 1) && <PasswordHelper count = {count}/>
                         }
                         <div className="form-group">
                                 <button
@@ -119,13 +125,7 @@ const Register = () => {
                             </div>
                     </Form>
                 )}
-
-            >
-
-
-
-            </Formik>
-
+            />
         </React.Fragment>
     )
 }
