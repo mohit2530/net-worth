@@ -7,7 +7,7 @@ import { Typography, Link } from '@material-ui/core'
 
 const Register = (props) => {
     const preventDefaultAction = () => {
-        console.log("Empty for now. ")
+        console.log("Empty for now. ");
     }
     return (
         <React.Fragment>
