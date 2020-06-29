@@ -6,10 +6,21 @@ export const constants = {
 
     baseUrl: '/',
     homeUrl: '/home',
+    personalInfoUrl : '/about',
+    personalization : '/userInfo',
+    security : '/security',
+    dataSharing : '/dataSharing',
+    payments : '/payments',
 
-    login : "Log In",
-    logout : "Log Off",
+    login : 'Log In',
+    logout : 'Log Off',
 
+    home : 'Home',
+    personalInfo : 'Personal Information',
+    personalizeAccount : 'Personalize Data',
+    securityInfo : 'Security Information',
+    dataInfo : 'Data Sharing Information',
+    paymentsInfo : 'Payment and Subscriptions',
 
 
 
