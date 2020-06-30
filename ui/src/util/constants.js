@@ -33,7 +33,6 @@ export const constants = {
     LoginForRegister: 'Already have an account ? ',
 
     // log in page
-    login: 'Log In',
     loginHeading: 'Net Tracker',
     passwordHelp: ' Password Hint',
     privacyPolicy: 'Privacy Policy',
