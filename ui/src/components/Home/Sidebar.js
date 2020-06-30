@@ -10,6 +10,11 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import MonetizationOnOutlinedIcon from '@material-ui/icons/MonetizationOnOutlined'
 import EnhancedEncryptionOutlinedIcon from '@material-ui/icons/EnhancedEncryptionOutlined'
 import { Drawer, makeStyles, List, ListItem, ListItemIcon, ListItemText, Container, Typography } from '@material-ui/core'
+import PersonalInformation from './PersonalInformation/PersonalInformation'
+import Personalize from './Personalize/Personalize'
+import Security from '../additionalWips/Security'
+import Payments from '../additionalWips/Payments'
+import DataSharing from '../additionalWips/DataSharing'
 
 const useStyles = makeStyles((theme) => ({
     drawerPaper: { width: 'inherit', marginTop: 'inherit' },
@@ -102,29 +107,29 @@ const Sidebar = () => {
                                 </Paper>
                             </Container>
                         </Route>
-                        <Route exact path = {constants.homeUrl}>
+                        <Route exact path = {constants.personalInfoUrl}>
                             <Container maxWidth="lg" className = {classes.container} >
-                                {constants.home}
+                                <PersonalInformation/>
                             </Container>
                         </Route>
-                        <Route exact path = {constants.homeUrl}>
+                        <Route exact path = {constants.personalization}>
                             <Container maxWidth="lg" className = {classes.container} >
-                                {constants.home}
+                                <Personalize/>
                             </Container>
                         </Route>
-                        <Route exact path = {constants.homeUrl}>
+                        <Route exact path = {constants.security}>
                             <Container maxWidth="lg" className = {classes.container} >
-                                {constants.home}
+                                <Security/>
                             </Container>
                         </Route>
-                        <Route exact path = {constants.homeUrl}>
+                        <Route exact path = {constants.dataSharing}>
                             <Container maxWidth="lg" className = {classes.container} >
-                                {constants.home}
+                                <DataSharing/>
                             </Container>
                         </Route>
-                        <Route exact path = {constants.homeUrl}>
+                        <Route exact path = {constants.payments}>
                             <Container maxWidth="lg" className = {classes.container} >
-                                {constants.home}
+                                <Payments/>
                             </Container>
                         </Route>
                     </Switch>
